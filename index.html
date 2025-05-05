@@ -19,59 +19,20 @@
         .background {
             position: fixed;
             inset: 0;
-            background: url('https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcW1peGU5bG1nYWNpbXc2eTEwc2FvZnBpeW83eHEyZWxpanFwNXViayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2PWBLDJ2KtB1X6o9vY/giphy.gif') center/cover;
+            background: url('https://example.com/piano-background.jpg') center/cover; /* Replace with actual piano image URL */
             filter: blur(8px) brightness(0.5);
             z-index: -1;
             transition: transform 0.2s ease-out;
         }
 
-        .loading {
+        /* Main Content */
+        .main-content {
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
-            z-index: 100;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 4px solid rgba(255, 0, 0, 0.1);
-            border-top-color: #ff0000;
-            border-right-color: #ff0000;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
-            backdrop-filter: blur(5px);
-        }
-
-        .loading-text {
-            font-size: 1.25rem;
-            color: #00aaff;
-            text-shadow: 0 0 10px #00aaff;
-            font-weight: 600;
-            letter-spacing: 1px;
-            animation: textPulse 2s infinite;
-        }
-
-        /* Main Content */
-        .main-content {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, 100%);
-            text-align: center;
             z-index: 80;
-        }
-
-        .main-content.show {
-            animation: slideUp 1s forwards;
         }
 
         .logo {
@@ -174,20 +135,6 @@
         }
 
         /* Keyframes for animations */
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        @keyframes textPulse {
-            0%, 100% { opacity: 0.7; }
-            50% { opacity: 1; }
-        }
-
-        @keyframes slideUp {
-            from { transform: translate(-50%, 100%); opacity: 0; }
-            to { transform: translate(-50%, -50%); opacity: 1; }
-        }
-
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
@@ -196,11 +143,6 @@
 </head>
 <body>
     <div class="background"></div>
-    
-    <div class="loading">
-        <div class="spinner"></div>
-        <div class="loading-text">Loading: 2s</div>
-    </div>
 
     <div class="main-content">
         <img src="https://media-hosting.imagekit.io/7cda98aaa23b43ed/Picsart_25-01-01_12-25-02-445.jpg?Expires=1841063839&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=1fgVLK0Ry5oVkg-YzOrYsfiyGH5j8B35JOQ8oxGiVvQ4X65SFGmnahXJu5TyBqu4yfIRBY6QI5fHmCGCXt1gnF7tHa1t-sQEV11FDqitg7A2Zw9GYS3dj2-a1EObeSZ1fxHbx2DRIGI6hDlWruAKOXdqN1OQIfihP83mS807zQsCRzMBiGTugPnjnOjAxtdmQgIm0AjNqYceMwcdBTyUZ6nSAnu7eo-7bzWwvk2tmYnFAxxJ12eGJAMeJILwRN87UIWjAmUN9RK6cs0WR~RZQoBLP7PUGqLJlk0EKtLtAm9DJiUmtMLqsy4Tysi5TW5NFBwkX4PAzcHsg__" alt="Abhinav Gupta Logo" class="logo">
@@ -243,17 +185,5 @@
             <iframe width="560" height="315" src="https://www.youtube.com/embed/YourVideoID" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </div>
-
-    <script>
-        const loading = document.querySelector('.loading');
-        const mainContent = document.querySelector('.main-content');
-
-        window.onload = () => {
-            setTimeout(() => {
-                loading.style.display = 'none';
-                mainContent.classList.add('show');
-            }, 2000);
-        };
-    </script>
 </body>
-    </html>
+</html>
