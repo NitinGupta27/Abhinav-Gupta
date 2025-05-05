@@ -7,12 +7,12 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
+      background-color: #e1f5fe;
       margin: 0;
       padding: 0;
     }
     header {
-      background-color: #333;
+      background-color: #0288d1;
       color: white;
       padding: 10px 0;
       text-align: center;
@@ -26,9 +26,10 @@
       margin-bottom: 10px;
     }
     nav {
-      text-align: center;
-      background-color: #444;
+      background-color: #0288d1;
       padding: 10px 0;
+      text-align: center;
+      display: none;
     }
     nav a {
       color: white;
@@ -37,7 +38,7 @@
       margin: 0 15px;
     }
     nav a:hover {
-      background-color: #555;
+      background-color: #0277bd;
     }
     .container {
       padding: 20px;
@@ -74,13 +75,35 @@
       background-color: #45a049;
     }
     footer {
-      background-color: #333;
+      background-color: #0288d1;
       color: white;
       text-align: center;
       padding: 10px;
       position: fixed;
       width: 100%;
       bottom: 0;
+    }
+
+    /* Hamburger Menu Style */
+    .hamburger-menu {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 30px;
+      height: 25px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      margin: 0 10px;
+    }
+    .hamburger-menu div {
+      height: 5px;
+      background-color: white;
+      border-radius: 5px;
+    }
+    .menu-active {
+      display: block !important;
     }
   </style>
 </head>
@@ -89,9 +112,14 @@
 <header>
   <img src="https://i.ibb.co/nNwzVjY5" alt="Abhinav Gupta Logo">
   <h1>Welcome to Abhinav Gupta's Official Website</h1>
+  <button class="hamburger-menu" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </button>
 </header>
 
-<nav>
+<nav id="nav">
   <a href="#home">Home</a>
   <a href="#about">About</a>
   <a href="#portfolio">Portfolio</a>
@@ -112,6 +140,7 @@
 <div class="container" id="portfolio">
   <h2>Portfolio</h2>
   <p>Check out my latest work in thumbnails, logos, and piano covers.</p>
+  <a href="https://abhinavop-portfolio.my.canva.site/abhinav-gupta-portfolio" target="_blank">View My Portfolio</a>
 </div>
 
 <div class="container" id="contact">
@@ -147,6 +176,12 @@
   const correctUsername = 'ABHINAVNITIN'; // Username
   const correctPassword = 'ABHINAVNITIN2222'; // Password
 
+  // Toggle the menu for small screens (Hamburger Menu)
+  function toggleMenu() {
+    const nav = document.getElementById('nav');
+    nav.classList.toggle('menu-active');
+  }
+
   // Check login details and provide admin access
   function checkLogin() {
     const username = document.getElementById('username').value;
@@ -170,4 +205,4 @@
 </script>
 
 </body>
-</html>
+  </html>
