@@ -90,6 +90,35 @@
             left: 100%;
         }
 
+        /* Navigation Toggle */
+        .nav-toggle {
+            display: none;
+        }
+
+        .nav-menu {
+            display: none;
+            background: #333;
+            padding: 10px;
+            position: absolute;
+            top: 60px;
+            right: 10px;
+            border-radius: 8px;
+            width: 200px;
+        }
+
+        .nav-toggle:checked + .nav-menu {
+            display: block;
+        }
+
+        .menu-item {
+            padding: 10px;
+            background: #444;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+
         /* Sections */
         .section {
             padding: 3rem 0;
@@ -148,9 +177,11 @@
         <img src="https://media-hosting.imagekit.io/7cda98aaa23b43ed/Picsart_25-01-01_12-25-02-445.jpg?Expires=1841063839&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=1fgVLK0Ry5oVkg-YzOrYsfiyGH5j8B35JOQ8oxGiVvQ4X65SFGmnahXJu5TyBqu4yfIRBY6QI5fHmCGCXt1gnF7tHa1t-sQEV11FDqitg7A2Zw9GYS3dj2-a1EObeSZ1fxHbx2DRIGI6hDlWruAKOXdqN1OQIfihP83mS807zQsCRzMBiGTugPnjnOjAxtdmQgIm0AjNqYceMwcdBTyUZ6nSAnu7eo-7bzWwvk2tmYnFAxxJ12eGJAMeJILwRN87UIWjAmUN9RK6cs0WR~RZQoBLP7PUGqLJlk0EKtLtAm9DJiUmtMLqsy4Tysi5TW5NFBwkX4PAzcHsg__" alt="Abhinav Gupta Logo" class="logo">
         <h1 class="title">Welcome to Abhinav Gupta's Portfolio</h1>
 
-        <div class="links">
-            <a href="https://www.youtube.com/@abhinavguptaofficials" target="_blank" class="link">YouTube</a>
-            <a href="https://discord.com/invite/MGZTfUadYz" target="_blank" class="link">Discord</a>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="menu-item">☰</label>
+        <div class="nav-menu">
+            <div class="menu-item">Portfolio</div>
+            <div class="menu-item">Contact Me</div>
         </div>
 
         <!-- Portfolio Section -->
@@ -182,7 +213,7 @@
         <!-- Video Section -->
         <div class="section video-section">
             <h2>Featured Videos</h2>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/YourVideoID" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/YourActualVideoID" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </div>
 </body>
