@@ -3,91 +3,171 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Abhinav Gupta - YouTube Official</title>
+  <title>Abhinav Gupta - Official Website</title>
   <style>
     body {
       font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
       margin: 0;
-      background: #f5f5f5;
-      color: #333;
-      text-align: center;
+      padding: 0;
     }
     header {
-      background-color: #111;
+      background-color: #333;
       color: white;
-      padding: 30px 20px;
+      padding: 10px 0;
+      text-align: center;
     }
     header h1 {
       margin: 0;
-      font-size: 2.5em;
     }
-    header p {
-      margin: 10px 0;
+    header img {
+      max-width: 100px;
+      height: auto;
+      margin-bottom: 10px;
     }
-    .button {
-      background-color: red;
+    nav {
+      text-align: center;
+      background-color: #444;
+      padding: 10px 0;
+    }
+    nav a {
       color: white;
-      padding: 12px 24px;
-      margin: 10px;
+      padding: 10px;
       text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-      display: inline-block;
+      margin: 0 15px;
     }
-    .discord {
-      background-color: #5865F2;
+    nav a:hover {
+      background-color: #555;
     }
-    .video-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 40px 20px;
-    }
-    iframe {
-      width: 360px;
-      height: 640px; /* Shorts are vertical */
-      border: none;
-      border-radius: 10px;
-    }
-    .contact {
+    .container {
       padding: 20px;
-      background: #fff;
+      text-align: center;
     }
-    .contact h2 {
-      margin-top: 0;
+    .announcement {
+      background-color: #ffcc00;
+      padding: 20px;
+      font-size: 1.5em;
+      margin-top: 20px;
+      border-radius: 10px;
+      display: none;
+    }
+    .admin-login, .admin-page {
+      display: none;
+      margin-top: 20px;
+    }
+    .admin-login input, .admin-page textarea {
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 10px;
+      width: 100%;
+      max-width: 500px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
     }
     footer {
-      background: #111;
+      background-color: #333;
       color: white;
-      padding: 15px;
-      margin-top: 20px;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Abhinav Gupta Official</h1>
-    <p>Welcome to my official website! I upload piano covers, music videos & more.</p>
-    <a class="button" href="https://youtube.com/@abhinavguptaofficials?sub_confirmation=1" target="_blank">Subscribe on YouTube</a>
-    <a class="button discord" href="https://discord.com/invite/MGZTfUadYz" target="_blank">Join My Discord</a>
-  </header>
+<header>
+  <img src="https://i.ibb.co/nNwzVjY5" alt="Abhinav Gupta Logo">
+  <h1>Welcome to Abhinav Gupta's Official Website</h1>
+</header>
 
-  <section class="video-container">
-    <iframe src="https://www.youtube.com/embed/7mOqY3g6DPw" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/fyD-joToNrg" allowfullscreen></iframe>
-  </section>
+<nav>
+  <a href="#home">Home</a>
+  <a href="#about">About</a>
+  <a href="#portfolio">Portfolio</a>
+  <a href="#contact">Contact</a>
+  <a href="#announcement">Announcement</a>
+</nav>
 
-  <section class="contact">
-    <h2>Contact Me</h2>
-    <p>For business or sponsorship inquiries:</p>
-    <p><strong>Email:</strong> <a href="mailto:nitinjiunnao2@gmail.com">nitinjiunnao2@gmail.com</a></p>
-  </section>
+<div class="container" id="home">
+  <h2>Home Page</h2>
+  <p>Welcome to my personal website. Here you can find my work, videos, and updates.</p>
+</div>
 
-  <footer>
-    <p>&copy; 2025 Abhinav Gupta. All rights reserved.</p>
-  </footer>
+<div class="container" id="about">
+  <h2>About Me</h2>
+  <p>Hello, I'm Abhinav Gupta, a designer and pianist. I create thumbnails, logos, and much more!</p>
+</div>
+
+<div class="container" id="portfolio">
+  <h2>Portfolio</h2>
+  <p>Check out my latest work in thumbnails, logos, and piano covers.</p>
+</div>
+
+<div class="container" id="contact">
+  <h2>Contact Me</h2>
+  <p>You can reach out to me at my email: <strong>nitinjiunnao2@gmail.com</strong></p>
+</div>
+
+<!-- Announcement Section -->
+<div id="announcement" class="announcement">
+  <p>This is a placeholder for announcements.</p>
+</div>
+
+<!-- Admin Login Form -->
+<div class="admin-login" id="admin-login">
+  <h3>Enter Admin Password to Post an Announcement</h3>
+  <input type="text" id="username" placeholder="Enter Username">
+  <input type="password" id="password" placeholder="Enter Admin Password">
+  <button onclick="checkLogin()">Submit</button>
+</div>
+
+<!-- Admin Page for Posting Announcements -->
+<div class="admin-page" id="admin-page">
+  <h3>Post an Announcement</h3>
+  <textarea id="announcement-text" placeholder="Write your announcement here..." rows="4" cols="50"></textarea><br>
+  <button onclick="postAnnouncement()">Post Announcement</button>
+</div>
+
+<footer>
+  <p>&copy; 2025 Abhinav Gupta. All rights reserved.</p>
+</footer>
+
+<script>
+  const correctUsername = 'ABHINAVNITIN'; // Username
+  const correctPassword = 'ABHINAVNITIN2222'; // Password
+
+  // Check login details and provide admin access
+  function checkLogin() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    if (username === correctUsername && password === correctPassword) {
+      document.getElementById('announcement').style.display = 'block';
+      document.getElementById('admin-login').style.display = 'none';
+      document.getElementById('admin-page').style.display = 'block';
+    } else {
+      alert('Incorrect Username or Password!');
+    }
+  }
+
+  // Post the announcement to the public section
+  function postAnnouncement() {
+    const announcement = document.getElementById('announcement-text').value;
+    document.getElementById('announcement').innerHTML = announcement;
+    alert('Announcement Posted!');
+  }
+</script>
 
 </body>
 </html>
