@@ -1,257 +1,192 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Abhinav Gupta - Official Website</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f4f8; /* Light blue background */
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
-    header {
-      background-color: #1e2a47; /* Dark blue */
-      color: white;
-      padding: 20px 0;
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    header img {
-      max-width: 120px;
-      height: auto;
-      margin-bottom: 10px;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-    }
-    nav {
-      background-color: #1e2a47;
-      padding: 10px 0;
-      text-align: center;
-      margin-bottom: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    nav a {
-      color: white;
-      padding: 15px;
-      text-decoration: none;
-      margin: 0 20px;
-      font-size: 1.2em;
-      display: inline-block;
-    }
-    nav a:hover {
-      background-color: #0288d1; /* Blue hover */
-      border-radius: 5px;
-    }
-    .hamburger-menu {
-      display: none;
-      flex-direction: column;
-      justify-content: space-around;
-      width: 30px;
-      height: 25px;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-    }
-    .hamburger-menu div {
-      height: 5px;
-      background-color: white;
-      border-radius: 5px;
-    }
-    .menu-active {
-      display: block !important;
-    }
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-      text-align: center;
-    }
-    .section {
-      display: none;
-    }
-    .announcement {
-      background-color: #ffcc00;
-      padding: 20px;
-      font-size: 1.5em;
-      margin-top: 20px;
-      border-radius: 10px;
-      display: none;
-    }
-    .admin-login, .admin-page {
-      display: none;
-      margin-top: 20px;
-    }
-    .admin-login input, .admin-page textarea {
-      padding: 15px;
-      font-size: 16px;
-      margin-bottom: 15px;
-      width: 100%;
-      max-width: 600px;
-      border-radius: 5px;
-      border: 1px solid #ddd;
-    }
-    button {
-      background-color: #4CAF50;
-      color: white;
-      padding: 15px 30px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #45a049;
-    }
-    footer {
-      background-color: #1e2a47;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 30px;
-    }
-    @media (max-width: 768px) {
-      nav a {
-        display: none;
-      }
-      .hamburger-menu {
-        display: flex;
-      }
-      .menu-active {
-        display: block;
-        position: absolute;
-        background-color: #1e2a47;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        padding: 20px 0;
-        text-align: center;
-      }
-      nav a {
-        display: block;
-        padding: 10px;
-        margin: 10px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhinav Gupta - Official Website</title>
+    <style>
+        /* Global styles */
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: #1c1c1c;
+            font-family: Arial, sans-serif;
+            color: white;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        /* Background animation */
+        .background {
+            position: fixed;
+            inset: -10px;
+            background: url('https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcW1peGU5bG1nYWNpbXc2eTEwc2FvZnBpeW83eHEyZWxpanFwNXViayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2PWBLDJ2KtB1X6o9vY/giphy.gif') center/cover;
+            filter: blur(8px) brightness(0.5);
+            z-index: -1;
+            transition: transform 0.2s ease-out;
+        }
+
+        /* Loading styles */
+        .loading {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255, 0, 0, 0.1);
+            border-top-color: #ff0000;
+            border-right-color: #ff0000;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+            backdrop-filter: blur(5px);
+        }
+
+        .loading-text {
+            font-size: 1.25rem;
+            color: #ff0000;
+            text-shadow: 0 0 10px #ff0000;
+            font-weight: 600;
+            letter-spacing: 1px;
+            animation: textPulse 2s infinite;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, 100%);
+            text-align: center;
+            z-index: 80;
+        }
+
+        .main-content.show {
+            animation: slideUp 1s forwards;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 1rem;
+            animation: float 4s ease-in-out infinite;
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+        }
+
+        .title {
+            font-size: 2rem;
+            color: #00aaff;
+            text-shadow: 0 0 10px #00aaff;
+            margin-bottom: 2rem;
+        }
+
+        .links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        .link {
+            padding: 0.75rem 1.5rem;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            border: 1px solid rgba(0, 170, 255, 0.3);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link:hover {
+            background: rgba(0, 170, 255, 0.8);
+            transform: translateY(-3px);
+            box-shadow: 0 0 20px rgba(0, 170, 255, 0.5);
+        }
+
+        .link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .link:hover::before {
+            left: 100%;
+        }
+
+        /* Keyframes for animations */
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes textPulse {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translate(-50%, 100%); opacity: 0; }
+            to { transform: translate(-50%, -50%); opacity: 1; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
 </head>
 <body>
-
-<header>
-  <img src="https://media-hosting.imagekit.io/7cda98aaa23b43ed/Picsart_25-01-01_12-25-02-445.jpg?Expires=1841063839&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=1fgVLK0Ry5oVkg-YzOrYsfiyGH5j8B35JOQ8oxGiVvQ4X65SFGmnahXJu5TyBqu4yfIRBY6QI5fHmCGCXt1gnF7tHa1t-sQEV11FDqitg7A2Zw9GYS3dj2-a1EObeSZ1fxHbx2DRIGI6hDlWruAKOXdqN1OQIfihP83mS807zQsCRzMBiGTugPnjnOjAxtdmQgIm0AjNqYceMwcdBTyUZ6nSAnu7eo-7bzWwvk2tmYnFAxxJ12sX6UfuR02eGJAMeJILwRN87UIWjAmUN9RK6cs0WR~RZQoBLP7PUGqLJlk0EKtLtAm9DJiUmtMLqsy4Tysi5TW5NFBwkX4PAzcHsg__" alt="Abhinav Gupta Logo">
-  <h1>Welcome to Abhinav Gupta's Official Website</h1>
-</header>
-
-<nav>
-  <button class="hamburger-menu" onclick="toggleMenu()">
-    <div></div>
-    <div></div>
-    <div></div>
-  </button>
-  <div id="navLinks">
-    <a href="#" onclick="showSection('home')">Home</a>
-    <a href="#" onclick="showSection('about')">About</a>
-    <a href="#" onclick="showSection('portfolio')">Portfolio</a>
-    <a href="#" onclick="showSection('contact')">Contact</a>
-    <a href="#" onclick="showSection('announcement')">Announcement</a>
-    <a href="https://discord.com/invite/MGZTfUadYz" target="_blank">Join My Discord</a>
-    <a href="https://youtube.com/@abhinavguptaofficials" target="_blank">YouTube Channel</a>
-  </div>
-</nav>
-
-<div class="container">
-  <div id="home" class="section">
-    <h2>Home Page</h2>
-    <p>Welcome to my personal website. Here you can find my work, videos, and updates.</p>
-  </div>
-
-  <div id="about" class="section">
-    <h2>About Me</h2>
-    <p>Hello, I'm Abhinav Gupta, a designer and pianist. I create thumbnails, logos, and much more!</p>
-  </div>
-
-  <div id="portfolio" class="section">
-    <h2>Portfolio</h2>
-    <p>Check out my latest work in thumbnails, logos, and piano covers.</p>
-    <a href="https://abhinavop-portfolio.my.canva.site/abhinav-gupta-portfolio" target="_blank">View My Portfolio</a>
-  </div>
-
-  <div id="contact" class="section">
-    <h2>Contact Me</h2>
-    <p>You can reach out to me at my email: <strong>nitinjiunnao2@gmail.com</strong></p>
-  </div>
-
-  <div id="announcement" class="section announcement">
-    <p>This is a placeholder for announcements.</p>
-  </div>
-
-</div>
-
-<!-- Admin Login Form -->
-<div class="admin-login" id="admin-login">
-  <h3>Enter Admin Password to Post an Announcement</h3>
-  <input type="text" id="username" placeholder="Enter Username">
-  <input type="password" id="password" placeholder="Enter Admin Password">
-  <button onclick="checkLogin()">Submit</button>
-</div>
-
-<!-- Admin Page for Posting Announcements -->
-<div class="admin-page" id="admin-page">
-  <h3>Post an Announcement</h3>
-  <textarea id="announcement-text" placeholder="Write your announcement here..." rows="4" cols="50"></textarea><br>
-  <button onclick="postAnnouncement()">Post Announcement</button>
-</div>
-
-<footer>
-  <p>&copy; 2025 Abhinav Gupta. All rights reserved.</p>
-</footer>
-
-<script>
-  const correctUsername = 'ABHINAVNITIN'; // Username
-  const correctPassword = 'ABHINAVNITIN2222'; // Password
-
-  // Toggle the menu for small screens (Hamburger Menu)
-  function toggleMenu() {
-    const navLinks = document.getElementById('navLinks');
-    navLinks.classList.toggle('menu-active');
-  }
-
-  // Show selected section
-  function showSection(sectionId) {
-    // Hide all sections
-    const sections = document.querySelectorAll('.section');
-    sections.forEach(section => section.style.display = 'none');
+    <div class="background"></div>
     
-    // Show the selected section
-    document.getElementById(sectionId).style.display = 'block';
-  }
+    <div class="loading">
+        <div class="spinner"></div>
+        <div class="loading-text">Loading: 2s</div>
+    </div>
 
-  // Check login details and provide admin access
-  function checkLogin() {
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+    <div class="main-content">
+        <img src="https://media-hosting.imagekit.io/7cda98aaa23b43ed/Picsart_25-01-01_12-25-02-445.jpg?Expires=1841063839&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=1fgVLK0Ry5oVkg-YzOrYsfiyGH5j8B35JOQ8oxGiVvQ4X65SFGmnahXJu5TyBqu4yfIRBY6QI5fHmCGCXt1gnF7tHa1t-sQEV11FDqitg7A2Zw9GYS3dj2-a1EObeSZ1fxHbx2DRIGI6hDlWruAKOXdqN1OQIfihP83mS807zQsCRzMBiGTugPnjnOjAxtdmQgIm0AjNqYceMwcdBTyUZ6nSAnu7eo-7bzWwvk2tmYnFAxxJ12eGJAMeJILwRN87UIWjAmUN9RK6cs0WR~RZQoBLP7PUGqLJlk0EKtLtAm9DJiUmtMLqsy4Tysi5TW5NFBwkX4PAzcHsg__" alt="Abhinav Gupta Logo" class="logo">
+        <h1 class="title">Welcome to Abhinav Gupta's Official Website</h1>
+        <div class="links">
+            <a href="https://www.youtube.com/@abhinavguptaofficials" target="_blank" class="link">YouTube</a>
+            <a href="https://discord.com/invite/MGZTfUadYz" target="_blank" class="link">Discord</a>
+        </div>
+    </div>
 
-    if (username === correctUsername && password === correctPassword) {
-      document.getElementById('announcement').style.display = 'block';
-      document.getElementById('admin-login').style.display = 'none';
-      document.getElementById('admin-page').style.display = 'block';
-    } else {
-      alert('Incorrect Username or Password!');
-    }
-  }
-
-  // Post the announcement to the public section
-  function postAnnouncement() {
-    const announcement = document.getElementById('announcement-text').value;
-    document.getElementById('announcement').innerHTML = announcement;
-    alert('Announcement Posted!');
-  }
-</script>
-
+    <script>
+        const loading = document.querySelector('.loading');
+        const loadingText = document.querySelector('.loading-text');
+        const mainContent = document.querySelector('.main-content');
+        
+        let timeLeft = 2;
+        const countdown = setInterval(() => {
+            timeLeft--;
+            loadingText.textContent = `Loading: ${timeLeft}s`;
+            
+            if (timeLeft <= 0) {
+                clearInterval(countdown);
+                loading.style.display = 'none';
+                mainContent.style.display = 'block';
+                mainContent.classList.add('show');
+            }
+        }, 1000);
+    </script>
 </body>
-    </html>
+</html>
