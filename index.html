@@ -15,35 +15,66 @@
     header {
       background-color: #1e2a47; /* Dark blue */
       color: white;
-      padding: 10px 0;
+      padding: 20px 0;
       text-align: center;
-    }
-    header h1 {
-      margin: 0;
+      margin-bottom: 20px;
     }
     header img {
-      max-width: 100px;
+      max-width: 120px;
       height: auto;
       margin-bottom: 10px;
     }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
     nav {
-      background-color: #1e2a47; /* Dark blue */
+      background-color: #1e2a47;
       padding: 10px 0;
       text-align: center;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
     nav a {
       color: white;
-      padding: 10px;
+      padding: 15px;
       text-decoration: none;
-      margin: 0 15px;
+      margin: 0 20px;
+      font-size: 1.2em;
+      display: inline-block;
     }
     nav a:hover {
       background-color: #0288d1; /* Blue hover */
       border-radius: 5px;
     }
+    .hamburger-menu {
+      display: none;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 30px;
+      height: 25px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+    }
+    .hamburger-menu div {
+      height: 5px;
+      background-color: white;
+      border-radius: 5px;
+    }
+    .menu-active {
+      display: block !important;
+    }
     .container {
+      max-width: 1200px;
+      margin: 0 auto;
       padding: 20px;
       text-align: center;
+    }
+    .section {
+      display: none;
     }
     .announcement {
       background-color: #ffcc00;
@@ -58,16 +89,18 @@
       margin-top: 20px;
     }
     .admin-login input, .admin-page textarea {
-      padding: 10px;
+      padding: 15px;
       font-size: 16px;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
       width: 100%;
-      max-width: 500px;
+      max-width: 600px;
+      border-radius: 5px;
+      border: 1px solid #ddd;
     }
     button {
       background-color: #4CAF50;
       color: white;
-      padding: 10px 20px;
+      padding: 15px 30px;
       border: none;
       border-radius: 5px;
       cursor: pointer;
@@ -79,31 +112,31 @@
       background-color: #1e2a47;
       color: white;
       text-align: center;
-      padding: 10px;
-      position: fixed;
-      width: 100%;
-      bottom: 0;
+      padding: 15px;
+      margin-top: 30px;
     }
-    /* Hamburger Menu Style */
-    .hamburger-menu {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      width: 30px;
-      height: 25px;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-      margin: 0 10px;
-    }
-    .hamburger-menu div {
-      height: 5px;
-      background-color: white;
-      border-radius: 5px;
-    }
-    .menu-active {
-      display: block !important;
+    @media (max-width: 768px) {
+      nav a {
+        display: none;
+      }
+      .hamburger-menu {
+        display: flex;
+      }
+      .menu-active {
+        display: block;
+        position: absolute;
+        background-color: #1e2a47;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        padding: 20px 0;
+        text-align: center;
+      }
+      nav a {
+        display: block;
+        padding: 10px;
+        margin: 10px;
+      }
     }
   </style>
 </head>
@@ -112,47 +145,51 @@
 <header>
   <img src="https://media-hosting.imagekit.io/7cda98aaa23b43ed/Picsart_25-01-01_12-25-02-445.jpg?Expires=1841063839&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=1fgVLK0Ry5oVkg-YzOrYsfiyGH5j8B35JOQ8oxGiVvQ4X65SFGmnahXJu5TyBqu4yfIRBY6QI5fHmCGCXt1gnF7tHa1t-sQEV11FDqitg7A2Zw9GYS3dj2-a1EObeSZ1fxHbx2DRIGI6hDlWruAKOXdqN1OQIfihP83mS807zQsCRzMBiGTugPnjnOjAxtdmQgIm0AjNqYceMwcdBTyUZ6nSAnu7eo-7bzWwvk2tmYnFAxxJ12sX6UfuR02eGJAMeJILwRN87UIWjAmUN9RK6cs0WR~RZQoBLP7PUGqLJlk0EKtLtAm9DJiUmtMLqsy4Tysi5TW5NFBwkX4PAzcHsg__" alt="Abhinav Gupta Logo">
   <h1>Welcome to Abhinav Gupta's Official Website</h1>
+</header>
+
+<nav>
   <button class="hamburger-menu" onclick="toggleMenu()">
     <div></div>
     <div></div>
     <div></div>
   </button>
-</header>
-
-<nav id="nav">
-  <a href="#home">Home</a>
-  <a href="#about">About</a>
-  <a href="#portfolio">Portfolio</a>
-  <a href="#contact">Contact</a>
-  <a href="#announcement">Announcement</a>
-  <a href="https://discord.com/invite/MGZTfUadYz" target="_blank">Join My Discord</a>
-  <a href="https://youtube.com/@abhinavguptaofficials" target="_blank">YouTube Channel</a>
+  <div id="navLinks">
+    <a href="#" onclick="showSection('home')">Home</a>
+    <a href="#" onclick="showSection('about')">About</a>
+    <a href="#" onclick="showSection('portfolio')">Portfolio</a>
+    <a href="#" onclick="showSection('contact')">Contact</a>
+    <a href="#" onclick="showSection('announcement')">Announcement</a>
+    <a href="https://discord.com/invite/MGZTfUadYz" target="_blank">Join My Discord</a>
+    <a href="https://youtube.com/@abhinavguptaofficials" target="_blank">YouTube Channel</a>
+  </div>
 </nav>
 
-<div class="container" id="home">
-  <h2>Home Page</h2>
-  <p>Welcome to my personal website. Here you can find my work, videos, and updates.</p>
-</div>
+<div class="container">
+  <div id="home" class="section">
+    <h2>Home Page</h2>
+    <p>Welcome to my personal website. Here you can find my work, videos, and updates.</p>
+  </div>
 
-<div class="container" id="about">
-  <h2>About Me</h2>
-  <p>Hello, I'm Abhinav Gupta, a designer and pianist. I create thumbnails, logos, and much more!</p>
-</div>
+  <div id="about" class="section">
+    <h2>About Me</h2>
+    <p>Hello, I'm Abhinav Gupta, a designer and pianist. I create thumbnails, logos, and much more!</p>
+  </div>
 
-<div class="container" id="portfolio">
-  <h2>Portfolio</h2>
-  <p>Check out my latest work in thumbnails, logos, and piano covers.</p>
-  <a href="https://abhinavop-portfolio.my.canva.site/abhinav-gupta-portfolio" target="_blank">View My Portfolio</a>
-</div>
+  <div id="portfolio" class="section">
+    <h2>Portfolio</h2>
+    <p>Check out my latest work in thumbnails, logos, and piano covers.</p>
+    <a href="https://abhinavop-portfolio.my.canva.site/abhinav-gupta-portfolio" target="_blank">View My Portfolio</a>
+  </div>
 
-<div class="container" id="contact">
-  <h2>Contact Me</h2>
-  <p>You can reach out to me at my email: <strong>nitinjiunnao2@gmail.com</strong></p>
-</div>
+  <div id="contact" class="section">
+    <h2>Contact Me</h2>
+    <p>You can reach out to me at my email: <strong>nitinjiunnao2@gmail.com</strong></p>
+  </div>
 
-<!-- Announcement Section -->
-<div id="announcement" class="announcement">
-  <p>This is a placeholder for announcements.</p>
+  <div id="announcement" class="section announcement">
+    <p>This is a placeholder for announcements.</p>
+  </div>
+
 </div>
 
 <!-- Admin Login Form -->
@@ -180,8 +217,18 @@
 
   // Toggle the menu for small screens (Hamburger Menu)
   function toggleMenu() {
-    const nav = document.getElementById('nav');
-    nav.classList.toggle('menu-active');
+    const navLinks = document.getElementById('navLinks');
+    navLinks.classList.toggle('menu-active');
+  }
+
+  // Show selected section
+  function showSection(sectionId) {
+    // Hide all sections
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => section.style.display = 'none');
+    
+    // Show the selected section
+    document.getElementById(sectionId).style.display = 'block';
   }
 
   // Check login details and provide admin access
@@ -207,4 +254,4 @@
 </script>
 
 </body>
-</html>
+    </html>
