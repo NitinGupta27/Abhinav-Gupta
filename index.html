@@ -3,31 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhinav Gupta - Official Website</title>
+    <title>Abhinav Gupta - Portfolio</title>
     <style>
-        /* Global styles */
+        /* Global Styles */
         body {
             margin: 0;
             padding: 0;
-            min-height: 100vh;
-            background: #1c1c1c;
+            background: #0a0a0a;
             font-family: Arial, sans-serif;
             color: white;
-            overflow: hidden;
+            overflow-x: hidden;
             cursor: pointer;
         }
 
-        /* Background animation */
         .background {
             position: fixed;
-            inset: -10px;
+            inset: 0;
             background: url('https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcW1peGU5bG1nYWNpbXc2eTEwc2FvZnBpeW83eHEyZWxpanFwNXViayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/2PWBLDJ2KtB1X6o9vY/giphy.gif') center/cover;
             filter: blur(8px) brightness(0.5);
             z-index: -1;
             transition: transform 0.2s ease-out;
         }
 
-        /* Loading styles */
         .loading {
             position: fixed;
             top: 50%;
@@ -55,8 +52,8 @@
 
         .loading-text {
             font-size: 1.25rem;
-            color: #ff0000;
-            text-shadow: 0 0 10px #ff0000;
+            color: #00aaff;
+            text-shadow: 0 0 10px #00aaff;
             font-weight: 600;
             letter-spacing: 1px;
             animation: textPulse 2s infinite;
@@ -83,7 +80,7 @@
             border-radius: 50%;
             margin-bottom: 1rem;
             animation: float 4s ease-in-out infinite;
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+            box-shadow: 0 0 20px rgba(0, 170, 255, 0.5);
         }
 
         .title {
@@ -132,6 +129,50 @@
             left: 100%;
         }
 
+        /* Sections */
+        .section {
+            padding: 3rem 0;
+            text-align: center;
+            background-color: #111;
+        }
+
+        .section h2 {
+            font-size: 2rem;
+            color: #00aaff;
+        }
+
+        .section p {
+            font-size: 1.1rem;
+            color: #bbb;
+        }
+
+        .portfolio, .contact {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .portfolio-item, .contact-item {
+            width: 250px;
+            margin: 10px;
+            padding: 1rem;
+            background: #333;
+            border-radius: 8px;
+            color: white;
+        }
+
+        /* Video Section */
+        .video-section iframe {
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 170, 255, 0.5);
+            transition: transform 0.3s;
+        }
+
+        .video-section iframe:hover {
+            transform: scale(1.05);
+        }
+
         /* Keyframes for animations */
         @keyframes spin {
             to { transform: rotate(360deg); }
@@ -163,30 +204,56 @@
 
     <div class="main-content">
         <img src="https://media-hosting.imagekit.io/7cda98aaa23b43ed/Picsart_25-01-01_12-25-02-445.jpg?Expires=1841063839&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=1fgVLK0Ry5oVkg-YzOrYsfiyGH5j8B35JOQ8oxGiVvQ4X65SFGmnahXJu5TyBqu4yfIRBY6QI5fHmCGCXt1gnF7tHa1t-sQEV11FDqitg7A2Zw9GYS3dj2-a1EObeSZ1fxHbx2DRIGI6hDlWruAKOXdqN1OQIfihP83mS807zQsCRzMBiGTugPnjnOjAxtdmQgIm0AjNqYceMwcdBTyUZ6nSAnu7eo-7bzWwvk2tmYnFAxxJ12eGJAMeJILwRN87UIWjAmUN9RK6cs0WR~RZQoBLP7PUGqLJlk0EKtLtAm9DJiUmtMLqsy4Tysi5TW5NFBwkX4PAzcHsg__" alt="Abhinav Gupta Logo" class="logo">
-        <h1 class="title">Welcome to Abhinav Gupta's Official Website</h1>
+        <h1 class="title">Welcome to Abhinav Gupta's Portfolio</h1>
+
         <div class="links">
             <a href="https://www.youtube.com/@abhinavguptaofficials" target="_blank" class="link">YouTube</a>
             <a href="https://discord.com/invite/MGZTfUadYz" target="_blank" class="link">Discord</a>
+        </div>
+
+        <!-- Portfolio Section -->
+        <div class="section portfolio">
+            <h2>Portfolio</h2>
+            <div class="portfolio-item">
+                <h3>Logo Design</h3>
+                <p>Check out my logo design work for clients.</p>
+            </div>
+            <div class="portfolio-item">
+                <h3>Thumbnail Design</h3>
+                <p>Explore my thumbnail design for YouTubers.</p>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="section contact">
+            <h2>Contact Me</h2>
+            <div class="contact-item">
+                <h3>Email</h3>
+                <p>nitinjiunnao2@gmail.com</p>
+            </div>
+            <div class="contact-item">
+                <h3>Location</h3>
+                <p>Uttar Pradesh, India</p>
+            </div>
+        </div>
+
+        <!-- Video Section -->
+        <div class="section video-section">
+            <h2>Featured Videos</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/YourVideoID" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
     </div>
 
     <script>
         const loading = document.querySelector('.loading');
-        const loadingText = document.querySelector('.loading-text');
         const mainContent = document.querySelector('.main-content');
-        
-        let timeLeft = 2;
-        const countdown = setInterval(() => {
-            timeLeft--;
-            loadingText.textContent = `Loading: ${timeLeft}s`;
-            
-            if (timeLeft <= 0) {
-                clearInterval(countdown);
+
+        window.onload = () => {
+            setTimeout(() => {
                 loading.style.display = 'none';
-                mainContent.style.display = 'block';
                 mainContent.classList.add('show');
-            }
-        }, 1000);
+            }, 2000);
+        };
     </script>
 </body>
-</html>
+    </html>
