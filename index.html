@@ -1,200 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhinav Gupta - YouTube Channel</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #1a1a1a; /* Dark background */
-            color: #fff;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abhinav Gupta - Official Site</title>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&family=Quicksand:wght@500&display=swap" rel="stylesheet">
+  <style>
+    /* Global Styles */
+    body {
+      margin: 0;
+      font-family: 'Baloo 2', cursive;
+      background: linear-gradient(to right, #0047AB, #1E90FF);
+      color: #fff;
+      overflow-x: hidden;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      animation: fadeIn 1s ease-out;
+    }
 
-        header {
-            background-color: #003366; /* Royal blue */
-            color: white;
-            text-align: center;
-            padding: 20px;
-            position: relative;
-        }
+    /* Header Styles */
+    header {
+      background: linear-gradient(to right, #000080, #0047AB);
+      padding: 6rem;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+      background-size: cover;
+      animation: fadeInUp 2s ease-out;
+    }
 
-        header h1 {
-            font-size: 2.5em;
-        }
+    header h1 {
+      font-size: 3.5rem;
+      color: #fff;
+      text-shadow: 3px 3px 20px rgba(0,0,0,0.7);
+    }
 
-        header p {
-            font-size: 1.2em;
-        }
+    header img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      margin-bottom: 30px;
+      transition: all 0.3s ease;
+    }
 
-        /* Hamburger Menu Styles */
-        .menu-icon {
-            display: none;
-            cursor: pointer;
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
+    header img:hover {
+      transform: scale(1.1);
+    }
 
-        .menu-icon div {
-            width: 30px;
-            height: 5px;
-            margin: 6px 0;
-            background-color: #fff;
-            border-radius: 5px;
-        }
+    header p {
+      font-size: 1.5rem;
+      margin-top: 20px;
+    }
 
-        /* Main Menu */
-        .nav-menu {
-            display: flex;
-            justify-content: center;
-            background-color: #003366;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+    /* Menu Icon Styles */
+    .menu-icon {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      cursor: pointer;
+      z-index: 10;
+    }
 
-        .nav-menu li {
-            padding: 15px;
-            text-align: center;
-        }
+    .menu-icon div {
+      width: 35px;
+      height: 6px;
+      background-color: #fff;
+      margin: 8px 0;
+      border-radius: 5px;
+    }
 
-        .nav-menu li a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.2em;
-        }
+    nav {
+      display: none;
+      flex-direction: column;
+      align-items: flex-end;
+      background-color: #0047AB;
+      padding: 1.5rem;
+      position: absolute;
+      top: 100px;
+      right: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
 
-        .nav-menu li a:hover {
-            color: #ffcc00; /* Gold hover effect */
-        }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.3rem;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      margin: 5px 0;
+      transition: all 0.3s ease;
+    }
 
-        /* Mobile Menu */
-        .nav-menu-mobile {
-            display: none;
-            flex-direction: column;
-            background-color: #003366;
-            padding: 20px;
-            position: absolute;
-            top: 60px;
-            right: 0;
-            width: 200px;
-        }
+    nav a:hover {
+      background: #ff9ff3;
+      color: #1E90FF;
+    }
 
-        /* Menu Active */
-        .nav-menu.active {
-            display: none;
-        }
+    /* Page Styles */
+    .page {
+      display: none;
+      padding: 6rem;
+      text-align: center;
+      animation: fadeIn 1s ease-out;
+    }
 
-        .nav-menu-mobile.active {
-            display: flex;
-        }
+    .page.active {
+      display: block;
+    }
 
-        .content {
-            text-align: center;
-            padding: 20px;
-        }
+    .page h2 {
+      font-size: 2.5rem;
+      color: #fff;
+      margin-bottom: 2rem;
+      animation: slideInLeft 1s ease-out;
+    }
 
-        .video-container iframe {
-            width: 80%;
-            height: 400px;
-            margin-top: 20px;
-        }
+    iframe {
+      margin-top: 2rem;
+      width: 90%;
+      max-width: 700px;
+      height: 420px;
+      border-radius: 12px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.4);
+      transition: all 0.3s ease;
+    }
 
-        footer {
-            background-color: #003366;
-            color: white;
-            text-align: center;
-            padding: 10px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
+    iframe:hover {
+      transform: scale(1.05);
+    }
 
-        /* Section Styling */
-        #about, #contact {
-            background-color: #1a1a1a;
-            padding: 40px;
-            margin: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
+    /* Footer Styles */
+    footer {
+      background: #1f2a44;
+      color: #fff;
+      padding: 2rem;
+      text-align: center;
+      font-size: 1.2rem;
+      margin-top: 4rem;
+    }
 
-        h2, h3 {
-            color: #ffcc00; /* Gold color for headings */
-        }
+    .links a {
+      font-size: 1.8rem;
+      font-weight: bold;
+      background: #1E90FF;
+      color: #2c3e50;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
 
-        a {
-            color: #ffcc00; /* Gold color for links */
-        }
+    .links a:hover {
+      background: #2c3e50;
+      color: #1E90FF;
+    }
 
-        a:hover {
-            color: #fff;
-        }
-    </style>
+    .links p {
+      margin-top: 2rem;
+    }
+
+    /* Keyframe Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .page h2 {
+        font-size: 1.8rem;
+      }
+
+      iframe {
+        height: 300px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to Abhinav Gupta's Channel</h1>
-        <p>Piano Covers, Original Songs, and Tutorials</p>
-
-        <!-- Hamburger Menu Icon -->
-        <div class="menu-icon" onclick="toggleMenu()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-
-        <!-- Main Menu for Desktop -->
-        <ul class="nav-menu">
-            <li><a href="#about">About</a></li>
-            <li><a href="#videos">Videos</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-
-        <!-- Mobile Menu -->
-        <div class="nav-menu-mobile">
-            <a href="#about">About</a>
-            <a href="#videos">Videos</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </header>
-
-    <div class="content">
-        <!-- Video Section -->
-        <div class="video-container" id="videos">
-            <iframe src="https://www.youtube.com/embed/fyD-joToNrg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-
-        <!-- About Section -->
-        <div id="about">
-            <h2>About Me</h2>
-            <p>HELLO EVERYONE, I AM ABHINAV GUPTA</p>
-            <p>🎵 Welcome to my channel, Abhinav Gupta! 🎹✨</p>
-            <p>I'm a professional pianist and music creator, bringing you soulful piano covers 🎶, original songs 🎼, and easy-to-follow tutorials 🎵. Whether you're a beginner or a pro, there's something here for every music lover!</p>
-            <p>Subscribe now and let’s make music together! 🎧🎶</p>
-        </div>
-
-        <!-- Contact Section -->
-        <div id="contact">
-            <h3>Contact</h3>
-            <p>For sponsorship & business-related inquiries: <a href="mailto:nitinjiunnao2@gmail.com">nitinjiunnao2@gmail.com</a></p>
-            <p>Join my community on Discord: <a href="https://discord.com/invite/MGZTfUadYz" target="_blank">Discord Server</a></p>
-        </div>
+  <header>
+    <img src="https://media-hosting.imagekit.io/7cda98aaa23b43ed/Picsart_25-01-01_12-25-02-445.jpg?Expires=1841063839&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=1fgVLK0Ry5oVkg-YzOrYsfiyGH5j8B35JOQ8oxGiVvQ4X65SFGmnahXJu5TyBqu4yfIRBY6QI5fHmCGCXt1gnF7tHa1t-sQEV11FDqitg7A2Zw9GYS3dj2-a1EObeSZ1fxHbx2DRIGI6hDlWruAKOXdqN1OQIfihP83mS807zQsCRzMBiGTugPnjnOjAxtdmQgIm0AjNqYceMwcdBTyUZ6nSAnu7eo-7bzWwvk2tmYnFAxxJ12sX6UfuR02eGJAMeJILwRN87UIWjAmUN9RK6cs0WR~RZQoBLP7PUGqLJlk0EKtLtAm9DJiUmtMLqsy4Tysi5TW5NFBwkX4PAzcHsg__" alt="Abhinav Gupta Logo" />
+    <h1>Abhinav Gupta's Official Site</h1>
+    <p>🎶 Piano Covers | 🎹 Original Songs | 🎓 Easy Tutorials</p>
+    <div class="menu-icon" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
+    <nav id="menu">
+      <a href="#" onclick="showPage('home')">Home</a>
+      <a href="#" onclick="showPage('about')">About</a>
+      <a href="#" onclick="showPage('contact')">Contact Us</a>
+      <a href="#" onclick="showPage('promotions')">Promotion/Sponsorship</a>
+      <a href="#" onclick="showPage('video')">Video</a>
+    </nav>
+  </header>
 
-    <footer>
-        <p>© 2025 Abhinav Gupta. All Rights Reserved.</p>
-    </footer>
+  <section id="home" class="page active">
+    <h2>Welcome to My Music Journey!</h2>
+    <div class="links">
+      <p><a href="https://youtube.com/@abhinavguptaofficials" target="_blank"><strong>Visit My YouTube Channel</strong></a></p>
+      <p><a href="https://discord.com/invite/MGZTfUadYz" target="_blank"><strong>Join My Discord Community</strong></a></p>
+    </div>
+  </section>
 
-    <script>
-        function toggleMenu() {
-            const menu = document.querySelector('.nav-menu-mobile');
-            menu.classList.toggle('active');
-        }
-    </script>
-</body>
-</html>
+  <section id="about" class="page">
+    <h2>About</h2>
+    <p>
+      ꧁𓊈𒆜🆆🅴🅻🅲🅾🅼🅴 𒆜꧂<br>
+      ꧁𓊈𒆜🆃🅾 🅼🆈𒆜𓊉<br>
+      ꧁𓊈𒆜 🆈🅾🆄🆃🆄🅱🅴🅲🅷🅰🅽🅽🅴🅻𒆜꧂<br><br>
+      Hello everyone, I’m Abhinav Gupta — a pianist and music creator sharing soulful piano covers, original tracks, and tutorials.
+    </p>
+  </section>
+
+  <section id="contact" class="page">
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:nitinjiunnao2@gmail.com">nitinjiunnao2@gmail.com</a></p>
+    <p>Join my <a href="https://discord.com/invite/MGZTfUadYz" target="_blank">Discord Server</a> for more info!</p>
+  </section>
+
+  <section id="promotions" class="page">
+    <h2>For Promotions & Sponsorships</h2>
+    <p>Email: <a href="mailto:nitinjiunnao2@gmail.com">nitinjiunnao2@gmail.com</a></p>
+    <p>Join Discord: <a href="https://discord.com/invite/MGZTfUadYz" target="_blank">Click Here</a></p>
+  </section>
+
+  <section id="video" class="page">
+    <h2>Watch This!</h2>
+    <iframe src="https://www.youtube.com/embed/fyD-joToNrg" frameborder="0" allowfullscreen></iframe>
+  </section>
+
+  <footer>
+    © 2025 Abhinav Gupta. Made with music & love.
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      menu.style.display =
