@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,111 +12,112 @@
       background: linear-gradient(to right, #000428, #004e92);
       color: #fff;
       overflow-x: hidden;
-    }header {
-  background: #001f3f;
-  text-align: center;
-  padding: 5rem 2rem 3rem;
-  position: relative;
-}
+    }
 
-header img {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  border: 4px solid #fff;
-  margin-bottom: 1rem;
-}
+    header {
+      background: #001f3f;
+      text-align: center;
+      padding: 5rem 2rem 3rem;
+      position: relative;
+    }
 
-header h1 {
-  font-size: 2.5rem;
-}
+    header img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      margin-bottom: 1rem;
+    }
 
-header p {
-  font-size: 1.2rem;
-  opacity: 0.9;
-}
+    header h1 {
+      font-size: 2.5rem;
+    }
 
-.menu-icon {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  cursor: pointer;
-  z-index: 10;
-}
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
 
-.menu-icon div {
-  width: 30px;
-  height: 4px;
-  background-color: white;
-  margin: 6px 0;
-}
+    .menu-icon {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      z-index: 10;
+    }
 
-nav {
-  display: none;
-  flex-direction: column;
-  align-items: flex-start;
-  position: absolute;
-  top: 100px;
-  right: 20px;
-  background: #002b5c;
-  padding: 1rem;
-  border-radius: 10px;
-}
+    .menu-icon div {
+      width: 30px;
+      height: 4px;
+      background-color: white;
+      margin: 6px 0;
+    }
 
-nav a {
-  color: white;
-  padding: 0.7rem 1rem;
-  text-decoration: none;
-  font-size: 1.1rem;
-  margin: 0.2rem 0;
-  border-radius: 6px;
-  background: #003f7f;
-}
+    nav {
+      display: none;
+      flex-direction: column;
+      align-items: flex-start;
+      position: absolute;
+      top: 100px;
+      right: 20px;
+      background: #002b5c;
+      padding: 1rem;
+      border-radius: 10px;
+    }
 
-nav a:hover {
-  background: #0055a5;
-}
+    nav a {
+      color: white;
+      padding: 0.7rem 1rem;
+      text-decoration: none;
+      font-size: 1.1rem;
+      margin: 0.2rem 0;
+      border-radius: 6px;
+      background: #003f7f;
+    }
 
-.page {
-  display: none;
-  padding: 3rem 2rem;
-  animation: fadeIn 0.8s ease-out;
-}
+    nav a:hover {
+      background: #0055a5;
+    }
 
-.page.active {
-  display: block;
-}
+    .page {
+      display: none;
+      padding: 3rem 2rem;
+      animation: fadeIn 0.8s ease-out;
+    }
 
-.content-box {
-  background: rgba(255, 255, 255, 0.05);
-  border-left: 5px solid #007acc;
-  padding: 2rem;
-  margin-bottom: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
-}
+    .page.active {
+      display: block;
+    }
 
-.content-box h3, .content-box p {
-  margin: 0.8rem 0;
-}
+    .content-box {
+      background: rgba(255, 255, 255, 0.05);
+      border-left: 5px solid #007acc;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    }
 
-footer {
-  text-align: center;
-  padding: 2rem;
-  background: #001f3f;
-  color: #fff;
-}
+    .content-box h3, .content-box p {
+      margin: 0.8rem 0;
+    }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #001f3f;
+      color: #fff;
+    }
 
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
   <header>
-    <img src="https://media-hosting.imagekit.io/7cda98aaa23b43ed/Picsart_25-01-01_12-25-02-445.jpg" alt="Abhinav Gupta Logo" />
+    <img src="https://cdn.discordapp.com/attachments/1367060212418084905/1369344351406391398/Picsart_25-01-01_12-25-02-445.jpg?ex=681b84ce&is=681a334e&hm=8553397046b0a4f0fa0049500204fa9ea4403845fa470112c57dce0f633e8278&" alt="Abhinav Gupta Logo" />
     <h1>Abhinav Gupta's Official Site</h1>
     <p>🎶 Piano Covers | 🎹 Original Songs | 🎓 Easy Tutorials</p>
     <div class="menu-icon" onclick="toggleMenu()">
@@ -127,13 +129,17 @@ footer {
       <a href="#" onclick="showPage('contact')">Contact Us</a>
       <a href="#" onclick="showPage('promotions')">Promotion/Sponsorship</a>
     </nav>
-  </header>  <section id="home" class="page active">
+  </header>
+
+  <section id="home" class="page active">
     <div class="content-box">
       <h3>Welcome to My Music Journey!</h3>
       <p><strong>Visit My YouTube Channel:</strong><br><a href="https://youtube.com/@abhinavguptaofficials" target="_blank">Click here</a></p>
       <p><strong>Join My Discord Community:</strong><br><a href="https://discord.com/invite/MGZTfUadYz" target="_blank">Click here</a></p>
     </div>
-  </section>  <section id="about" class="page">
+  </section>
+
+  <section id="about" class="page">
     <div class="content-box">
       <h3>꧁𓊈𒆜🆆🅴🅻🅲🅾🅼🅴 𒆜꧂</h3>
       <h3>꧁𓊈𒆜🆃🅾 🅼🆈𒆜𓊉</h3>
@@ -144,20 +150,28 @@ footer {
       <p>Subscribe now and let’s make music together! 🎧🎶</p>
       <p><strong>Contact For sponsorship & business-related inquiries:</strong><br>nitinjiunnao2@gmail.com</p>
     </div>
-  </section>  <section id="contact" class="page">
+  </section>
+
+  <section id="contact" class="page">
     <div class="content-box">
       <h3>Contact Us</h3>
       <p>Email: <a href="mailto:nitinjiunnao2@gmail.com">nitinjiunnao2@gmail.com</a></p>
       <p>Join our Discord for more info: <a href="https://discord.com/invite/MGZTfUadYz">Click here</a></p>
     </div>
-  </section>  <section id="promotions" class="page">
+  </section>
+
+  <section id="promotions" class="page">
     <div class="content-box">
       <h3>Promotion & Sponsorship</h3>
       <p>For business and sponsorship inquiries, please contact me via email:<br><a href="mailto:nitinjiunnao2@gmail.com">nitinjiunnao2@gmail.com</a></p>
     </div>
-  </section>  <footer>
+  </section>
+
+  <footer>
     <p>&copy; 2025 Abhinav Gupta. Made with music & love.</p>
-  </footer>  <script>
+  </footer>
+
+  <script>
     let menuVisible = false;
     function toggleMenu() {
       const menu = document.getElementById("menu");
@@ -171,5 +185,6 @@ footer {
       document.getElementById(pageId).classList.add('active');
       toggleMenu();
     }
-  </script></body>
-</html>
+  </script>
+</body>
+  </html>
