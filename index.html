@@ -16,6 +16,7 @@
       height: 100vh;
       display: flex;
       flex-direction: column;
+      padding: 0;
     }
 
     /* Header Styles */
@@ -29,9 +30,10 @@
     }
 
     header h1 {
-      font-size: 3.5rem;
+      font-size: 4rem;
       color: #fff;
       text-shadow: 3px 3px 20px rgba(0, 0, 0, 0.7);
+      margin-bottom: 1rem;
     }
 
     header img {
@@ -116,18 +118,34 @@
       margin-bottom: 2rem;
     }
 
-    iframe {
-      margin-top: 2rem;
-      width: 90%;
-      max-width: 700px;
-      height: 420px;
+    .content-box {
+      background-color: rgba(0, 0, 0, 0.6);
       border-radius: 12px;
-      box-shadow: 0 10px 35px rgba(0,0,0,0.4);
-      transition: all 0.3s ease;
+      padding: 2rem;
+      margin: 2rem 0;
+      max-width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: left;
     }
 
-    iframe:hover {
-      transform: scale(1.05);
+    .content-box h3 {
+      font-size: 2rem;
+      color: #fff;
+    }
+
+    .content-box p {
+      font-size: 1.2rem;
+      color: #ddd;
+    }
+
+    .gallery img {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      border-radius: 8px;
+      margin: 1rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     }
 
     /* Footer Styles */
@@ -183,6 +201,14 @@
       iframe {
         height: 300px;
       }
+
+      .content-box {
+        max-width: 90%;
+      }
+
+      .gallery img {
+        max-width: 100%;
+      }
     }
   </style>
 </head>
@@ -201,42 +227,51 @@
       <a href="#" onclick="showPage('about')">About</a>
       <a href="#" onclick="showPage('contact')">Contact Us</a>
       <a href="#" onclick="showPage('promotions')">Promotion/Sponsorship</a>
-      <a href="#" onclick="showPage('video')">Video</a>
+      <a href="#" onclick="showPage('gallery')">Gallery</a>
     </nav>
   </header>
 
   <section id="home" class="page active">
     <h2>Welcome to My Music Journey!</h2>
-    <div class="links">
-      <p><a href="https://youtube.com/@abhinavguptaofficials" target="_blank"><strong>Visit My YouTube Channel</strong></a></p>
-      <p><a href="https://discord.com/invite/MGZTfUadYz" target="_blank"><strong>Join My Discord Community</strong></a></p>
+    <div class="content-box">
+      <h3>Visit My YouTube Channel</h3>
+      <p><a href="https://youtube.com/@abhinavguptaofficials" target="_blank"><strong>Click Here to Visit</strong></a></p>
+      <h3>Join My Discord Community</h3>
+      <p><a href="https://discord.com/invite/MGZTfUadYz" target="_blank"><strong>Click Here to Join</strong></a></p>
     </div>
   </section>
 
   <section id="about" class="page">
     <h2>About</h2>
-    <p>
-      ꧁𓊈𒆜🆆🅴🅻🅲🅾🅼🅴 𒆜꧂<br>
-      ꧁𓊈𒆜🆃🅾 🅼🆈𒆜𓊉<br>
-      ꧁𓊈𒆜 🆈🅾🆄🆃🆄🅱🅴🅲🅷🅰🅽🅽🅴🅻𒆜꧂<br><br>
-      Hello everyone, I am Abhinav Gupta, a passionate pianist and music creator! Here on my website, you will find my latest piano covers, original songs, and easy-to-follow tutorials.<br>
-      I have been playing piano for years and am thrilled to share my music journey with you all.
-    </p>
+    <div class="content-box">
+      <h3>Hello, I am Abhinav Gupta!</h3>
+      <p>I am a passionate pianist and music creator. On this site, I share my music journey including piano covers, original songs, and tutorials!</p>
+    </div>
   </section>
 
   <section id="contact" class="page">
     <h2>Contact</h2>
-    <p>For inquiries and collaborations, please reach out to me via email: <a href="mailto:nitinjiunnao2@gmail.com">nitinjiunnao2@gmail.com</a></p>
+    <div class="content-box">
+      <h3>For inquiries, contact me at:</h3>
+      <p><a href="mailto:nitinjiunnao2@gmail.com">nitinjiunnao2@gmail.com</a></p>
+    </div>
   </section>
 
   <section id="promotions" class="page">
     <h2>Promotion / Sponsorship</h2>
-    <p>If you're interested in sponsoring my content or collaborating, please feel free to reach out. I am always open to exciting opportunities!</p>
+    <div class="content-box">
+      <h3>Interested in sponsoring my content or collaborating? Reach out!</h3>
+      <p>I am always open to exciting opportunities!</p>
+    </div>
   </section>
 
-  <section id="video" class="page">
-    <h2>Watch My Latest Video</h2>
-    <iframe src="https://www.youtube.com/embed/your-video-id" allowfullscreen></iframe>
+  <section id="gallery" class="page">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="https://via.placeholder.com/400x300?text=Gallery+Image+1" alt="Gallery Image 1" />
+      <img src="https://via.placeholder.com/400x300?text=Gallery+Image+2" alt="Gallery Image 2" />
+      <img src="https://via.placeholder.com/400x300?text=Gallery+Image+3" alt="Gallery Image 3" />
+    </div>
   </section>
 
   <footer>
