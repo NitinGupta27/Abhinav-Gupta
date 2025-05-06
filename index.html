@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Abhinav Gupta - Official Site</title>
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&family=Quicksand:wght@500&display=swap" rel="stylesheet">
   <style>
@@ -16,7 +16,6 @@
       height: 100vh;
       display: flex;
       flex-direction: column;
-      animation: fadeIn 1s ease-out;
     }
 
     /* Header Styles */
@@ -26,14 +25,13 @@
       text-align: center;
       position: relative;
       box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
-      background-size: cover;
       animation: fadeInUp 2s ease-out;
     }
 
     header h1 {
       font-size: 3.5rem;
       color: #fff;
-      text-shadow: 3px 3px 20px rgba(0,0,0,0.7);
+      text-shadow: 3px 3px 20px rgba(0, 0, 0, 0.7);
     }
 
     header img {
@@ -71,6 +69,7 @@
       border-radius: 5px;
     }
 
+    /* Navigation Styles */
     nav {
       display: none;
       flex-direction: column;
@@ -115,7 +114,6 @@
       font-size: 2.5rem;
       color: #fff;
       margin-bottom: 2rem;
-      animation: slideInLeft 1s ease-out;
     }
 
     iframe {
@@ -172,11 +170,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes slideInLeft {
-      from { opacity: 0; transform: translateX(-30px); }
-      to { opacity: 1; transform: translateX(0); }
-    }
-
     /* Responsive Design */
     @media (max-width: 768px) {
       header h1 {
@@ -226,32 +219,51 @@
       ꧁𓊈𒆜🆆🅴🅻🅲🅾🅼🅴 𒆜꧂<br>
       ꧁𓊈𒆜🆃🅾 🅼🆈𒆜𓊉<br>
       ꧁𓊈𒆜 🆈🅾🆄🆃🆄🅱🅴🅲🅷🅰🅽🅽🅴🅻𒆜꧂<br><br>
-      Hello everyone, I’m Abhinav Gupta — a pianist and music creator sharing soulful piano covers, original tracks, and tutorials.
+      Hello everyone, I am Abhinav Gupta, a passionate pianist and music creator! Here on my website, you will find my latest piano covers, original songs, and easy-to-follow tutorials.<br>
+      I have been playing piano for years and am thrilled to share my music journey with you all.
     </p>
   </section>
 
   <section id="contact" class="page">
-    <h2>Contact Me</h2>
-    <p>Email: <a href="mailto:nitinjiunnao2@gmail.com">nitinjiunnao2@gmail.com</a></p>
-    <p>Join my <a href="https://discord.com/invite/MGZTfUadYz" target="_blank">Discord Server</a> for more info!</p>
+    <h2>Contact</h2>
+    <p>For inquiries and collaborations, please reach out to me via email: <a href="mailto:nitinjiunnao2@gmail.com">nitinjiunnao2@gmail.com</a></p>
   </section>
 
   <section id="promotions" class="page">
-    <h2>For Promotions & Sponsorships</h2>
-    <p>Email: <a href="mailto:nitinjiunnao2@gmail.com">nitinjiunnao2@gmail.com</a></p>
-    <p>Join Discord: <a href="https://discord.com/invite/MGZTfUadYz" target="_blank">Click Here</a></p>
+    <h2>Promotion / Sponsorship</h2>
+    <p>If you're interested in sponsoring my content or collaborating, please feel free to reach out. I am always open to exciting opportunities!</p>
   </section>
 
   <section id="video" class="page">
-    <h2>Watch This!</h2>
-    <iframe src="https://www.youtube.com/embed/fyD-joToNrg" frameborder="0" allowfullscreen></iframe>
+    <h2>Watch My Latest Video</h2>
+    <iframe src="https://www.youtube.com/embed/your-video-id" allowfullscreen></iframe>
   </section>
 
   <footer>
-    © 2025 Abhinav Gupta. Made with music & love.
+    <p>&copy; 2025 Abhinav Gupta. All rights reserved.</p>
   </footer>
 
   <script>
+    let menuVisible = false;
+
     function toggleMenu() {
-      const menu = document.getElementById('menu');
-      menu.style.display =
+      const menu = document.getElementById("menu");
+      menu.style.display = menuVisible ? "none" : "flex";
+      menuVisible = !menuVisible;
+    }
+
+    function showPage(pageId) {
+      // Hide all sections
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(page => page.classList.remove('active'));
+
+      // Show the clicked section
+      const activePage = document.getElementById(pageId);
+      activePage.classList.add('active');
+      
+      // Hide menu after selecting a page
+      toggleMenu();
+    }
+  </script>
+</body>
+</html>
